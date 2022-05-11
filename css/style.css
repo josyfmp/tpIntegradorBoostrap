@@ -52,3 +52,10 @@ color: black;
     }
 }
 
+.boton-centro{
+    border: 1px solid #386dbd;
+    
+}
+.bg-info{
+    height: 50px;
+}
