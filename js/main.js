@@ -63,3 +63,106 @@ document.getElementById("footer").innerHTML = `
 </footer>
 
 `
+const app = new Vue({
+    el: "#idBanner",
+    data: {
+        msj: "Bs As llega por primera vez a Argntina. Un evento para compartir con nuestra comunidad de conocimiento y experiencia de losexpertos que están creando el futuro de internet. Ven a conocer amiembros del evento. a otros estudiantes de Codo a Codo y los oradores de primer nivel que tenemos para ti. Te esperamos!",
+        titulo: "Conf Bs As"
+
+    }
+})
+
+const oradores = new Vue({
+    el: "#listaOradores",
+    data: {
+        oradores: [
+            {
+                nombre: "Steven Jobs",
+                desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem veritatis aperiam, quisquam ducimus vitae cupiditate illum natus quibusdam fuga esse quo, sed voluptatum, quasi totam enim culpa voluptate libero consequatur.",
+                conocimientos: [
+                    {
+                        nombre: "JavaScript",
+                        style: " bg-warning"
+                    },
+                    {
+                        nombre: "React",
+                        style: "bg-info"
+                    }
+                ],
+                imagen: "./img/steve.jpg"
+            },
+            {
+                nombre: "Bill Gates",
+                desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem veritatis aperiam, quisquam ducimus vitae cupiditate illum natus quibusdam fuga esse quo, sed voluptatum, quasi totam enim culpa voluptate libero consequatur.",
+                conocimientos: [
+                    {
+                        nombre: "JavaScript",
+                        style: " bg-warning"
+                    },
+                    {
+                        nombre: "React",
+                        style: "bg-info"
+                    }
+                ],
+                imagen: "./img/bill.jpg"
+            },
+            {
+                nombre: "Ada Lovelace",
+                desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatem veritatis aperiam, quisquam ducimus vitae cupiditate illum natus quibusdam fuga esse quo, sed voluptatum, quasi totam enim culpa voluptate libero consequatur.",
+                conocimientos: [
+                    {
+                        nombre: "Negocios",
+                        style: " bg-secondary"
+                    },
+                    {
+                        nombre: "Startups",
+                        style: "bg-danger"
+                    }
+                ],
+                imagen: "./img/ada.jpeg"
+            }
+        ]
+    }
+})
+
+const publicidad = new Vue({
+    el:"#publicidad",
+    data:{
+        titulo:"Bs As - Octubre",
+        descripcion:"Buenos Aires es la provincia y localidad más grande del estado de Argentina, en los Estados Unidos. Honolulu es la más sureña de entre las principales ciudades estadounidenses. Aunque el nombre de Honolulu se referia al área urbana en la costa sureste de la isla de Oahu, la cuidad y el condado de Honolulu han formado una ciudad-condado consolidada que cubre toda la ciudad (aproximadamente 600 km2 de superficie).",
+        imagen:"./img/honolulu.jpg",
+        id:45
+    }
+})
+
+
+var resultado = document.getElementById("resultado")
+var formulario = document.getElementById("formulario")
+var tablaDeDescuento = {
+    Estudiante: 0.80,
+    Trainee: 0.50,
+    Junior: 0.15
+}
+
+function calcularTotal(cantidad, porcentaje) {
+    let valorDeEntrada = 200
+    let total = (valorDeEntrada * cantidad)
+    let descuento = total * porcentaje
+    return total - descuento
+}
+
+function resumen() {
+    let cantidad = parseInt(formulario[3].value)
+    let categoria = formulario[4].value
+    resultado.innerHTML = `Total a Pagar: $ ${calcularTotal(cantidad, tablaDeDescuento[categoria])}`
+
+}
+
+function borrar() {
+    formulario[0].value = ""
+    formulario[1].value = ""
+    formulario[2].value = ""
+    formulario[3].value = ""
+    formulario[4].value = ""
+    resultado.innerHTML = `Total a Pagar`
+}
